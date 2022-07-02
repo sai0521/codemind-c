@@ -1,7 +1,7 @@
 #include<stdio.h>
 int main()
 {
-    int n,i,j,m,s=0,m1=0;
+    int n,m,i,j;
     scanf("%d%d",&n,&m);
     int arr[n][m];
     for(i=0;i<n;i++)
@@ -11,17 +11,18 @@ int main()
             scanf("%d",&arr[i][j]);
         }
     }
-    for(j=0;j<m;j++)
+    int max=arr[0][0];
+    for(i=0;i<m;i++)
     {
-        s=0;
-        for(i=0;i<n;i++)
+        int s=0;
+        for(j=0;j<n;j++)
         {
-                s=s+arr[i][j];
+            s+=arr[j][i];
         }
-        if(m1<s)
+        if(s>max)
         {
-            m1=s;
+            max=s;
         }
     }
-    printf("%d",m1);
+    printf("%d",max);
 }
